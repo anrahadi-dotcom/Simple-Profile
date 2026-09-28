@@ -69,6 +69,26 @@ Kalau mau, boleh hapus komentar `<!-- -->` di dalamnya.
 - ⬆️ Tombol balik ke atas + navbar melengket di atas
 - 📐 Responsif: rapi di HP, tablet, dan laptop
 
+## Git
+
+Folder ini sudah jadi repository Git. Alur biasa:
+
+```powershell
+cd c:\Code\Bootstraps
+git status                    # lihat apa yang berubah
+git add .                     # tandai semua perubahan
+git commit -m "pesan commit"  # simpan
+```
+
+git sudah terpasang di `C:\Program Files\Git\cmd`. Kalau perintah `git` tidak dikenali,
+tambahkan dulu foldernya ke PATH lewat:
+
+```powershell
+$env:Path += ";C:\Program Files\Git\cmd"
+```
+
+Folder `Portofolio/` dan `Test 1/` sengaja tidak ikut di-commit (lihat `.gitignore`).
+
 ## Catatan
 
 Bagian kontak cuma berisi kartu link (email, Instagram, WhatsApp, GitHub).
