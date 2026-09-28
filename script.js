@@ -7,25 +7,28 @@
 const PENGATURAN = {
 
   // --- Identitas ---
-  inisial: "AR",              // 2 huruf di logo navbar
-  nama: "Ganti Nama Kamu",   // nama kamu
-  sekolah: "SMK Negeri 1 Ganti Ini",
+  inisial: "RA",                       // 2 huruf di logo navbar
+  nama: "Putu Rahadian Ardhia Permana", // nama lengkap (navbar & judul tab)
+  namaPendek: "Rahadian",               // nama di bagian hero
+  sekolah: "SMK Negeri 1 Denpasar",
   jurusan: "RPL",
 
   // Deskripsi singkat di bagian paling atas
   deskripsi:
-    "Ini contoh deskripsi singkat. Ubah teks ini jadi cerita kamu sendiri: " +
-    "siapa kamu, lagi belajar apa, dan apa yang kamu kejar.",
+    "Saya sedang mempelajari HTML CSS JS di SMK 1 Denpasar, Saya juga dibantu belajar JS " +
+    "di Timedoor, Dan target saya untuk kedepannya adalah supaya menjadi front-end Dev yang " +
+    "paham segala perubahan dan mampu beradapasi di lingkup web programming, cita-cita saya " +
+    "adalah untuk bekerja di luar negeri.",
 
   // Foto profil: taruh file "foto.jpg" satu folder dengan index.html,
   // lalu tulis "foto.jpg" di bawah. Kosongkan ("") kalau mau pakai inisial.
-  foto: "",
+  foto: "foto.jpeg",
 
   // --- Statistik di hero ---
   statistik: [
-    { angka: 17, label: "Umur" },
-    { angka: 12, label: "Project" },
-    { angka: 3,  label: "Tahun Ngoding" },
+    { angka: 16, label: "Umur" },
+    { angka: 4, label: "Project" },
+    { angka: 2,  label: "Tahun Ngoding" },
   ],
 
   // --- Tentang saya (boleh tambah / kurangi isinya) ---
@@ -33,12 +36,12 @@ const PENGATURAN = {
     {
       icon: "🎓",
       judul: "Sekolah",
-      isi: "SMK Negeri 1 Ganti Ini, kelas XII RPL. Aktif di kegiatan sekolah dan senang ikut lomba.",
+      isi: "SMK Negeri 1 Denpasar, kelas XI RPL.",
     },
     {
       icon: "💻",
       judul: "Fokus Belajar",
-      isi: "Belajar HTML, CSS, JavaScript, dan dasar backend. Suka bikin tampilan web yang rapi.",
+      isi: "Belajar HTML, CSS, JavaScript, dan dasar backend. Suka bikin tampilan web yang rapi. Dan mulai senang mengikuti lomba",
     },
     {
       icon: "🌱",
@@ -49,26 +52,26 @@ const PENGATURAN = {
 
   // --- Skill (persen 0-100) ---
   skill: [
-    { nama: "HTML & CSS",    persen: 90 },
-    { nama: "JavaScript",    persen: 75 },
-    { nama: "PHP / Laravel", persen: 60 },
-    { nama: "Desain UI",     persen: 70 },
+    { nama: "HTML & CSS",    persen: 75 },
+    { nama: "JavaScript",    persen: 35 },
+    { nama: "PHP / Laravel", persen: 10 },
+    { nama: "Desain UI",     persen: 80 },
   ],
 
   // --- Hobi (klik kartunya buat lihat detail) ---
   hobi: [
     { nama: "⚽ Futsal",        detail: "Main futsal tiap Sabtu sore bareng teman sekelas." },
-    { nama: "📚 Baca Buku",     detail: "Suka baca novel fiksi dan komik, biasanya malam hari." },
-    { nama: "🎬 Editing Video", detail: "Editing video buat konten sekolah pakai HP maupun laptop." },
-    { nama: "🏆 Ikut Lomba",    detail: "Ikut lomba coding dan sering ikut workshop online." },
+    { nama: "🥋 Taekwondo",     detail: "Suka nendang nendang saat tidak ada kerjaan" },
+    { nama: "🤼  MMA", detail: "Selain suka nendang saya juga suka mukul dan banting, of course dengan padsworks dan teman sparring" },
+    { nama: "🎮 Ngegame",    detail: "Senang memainkan beberapa game cth: Minecraft saya suka membuat modpack untuk mengasah imajinasi saya" },
   ],
 
   // --- Kontak (link + teks yang tampil) ---
   kontak: [
-    { icon: "✉️", judul: "Email",     teks: "email@contoh.com",       link: "mailto:email@contoh.com" },
-    { icon: "📸", judul: "Instagram", teks: "@gantiusername",          link: "https://instagram.com/gantiusername" },
-    { icon: "💬", judul: "WhatsApp",  teks: "0812-3456-7890",         link: "https://wa.me/6281234567890" },
-    { icon: "🐙", judul: "GitHub",    teks: "@gantiusername",          link: "https://github.com/gantiusername" },
+    { icon: "✉️", judul: "Email",     teks: "anrahadi02@gmail.com",       link: "mailto:anrahadi02@gmail.com" },
+    { icon: "📸", judul: "Instagram", teks: "@ptrahhdiann",          link: "https://instagram.com/ptrahhdiann" },
+    { icon: "💬", judul: "WhatsApp",  teks: "0817-7930-5092",         link: "https://wa.me/6281779305092" },
+    { icon: "🐙", judul: "GitHub",    teks: "@anrahadi-dotcom",          link: "https://github.com/anrahadi-dotcom" },
   ],
 
   // --- Lain-lain ---
@@ -88,7 +91,7 @@ document.title = `Profil ${PENGATURAN.nama}`;
 
 /* ---------- ISIKAN TEKS DARI PENGATURAN ---------- */
 $(".brand-name").textContent = PENGATURAN.nama;
-$(".hero-name").textContent = PENGATURAN.nama;
+$(".hero-name").textContent = PENGATURAN.namaPendek || PENGATURAN.nama;
 $(".hero-role").innerHTML =
   `Siswa <strong>${PENGATURAN.sekolah}</strong> — ` +
   `Jurusan <strong>${PENGATURAN.jurusan}</strong>`;
