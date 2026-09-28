@@ -1,6 +1,6 @@
 /* =========================================================
    Web Profil Siswa — style.css
-   Mau ubah warna utama? Cukup ganti nilai di :root.
+   Mau ubah warna? Cukup ganti nilai di :root di bawah.
    ========================================================= */
 
 :root {
@@ -10,14 +10,10 @@
   --text: #1c2230;
   --muted: #6b7280;
   --border: #e3e7ef;
-
-  /* Warna utama — ganti 2 baris ini buat ubah tema */
   --primary: #4f46e5;
   --accent: #06b6d4;
-
-  --radius: 16px;
-  --shadow: 0 8px 24px rgba(20, 25, 45, 0.08);
-  --maxw: 1050px;
+  --radius: 14px;
+  --maxw: 820px;
 }
 
 /* Tema gelap — diaktifkan lewat tombol 🌙 */
@@ -28,7 +24,6 @@ body.dark {
   --text: #e7eaf6;
   --muted: #9aa3bd;
   --border: #272c48;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -42,14 +37,10 @@ html {
 }
 
 body {
-  font-family:
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Segoe UI", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.7;
   transition:
     background 0.3s,
     color 0.3s;
@@ -72,8 +63,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--card);
   border-bottom: 1px solid var(--border);
 }
 
@@ -81,7 +71,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 60px;
 }
 
 .brand {
@@ -92,90 +82,71 @@ a {
 }
 
 .brand-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 9px;
+  background: var(--primary);
   color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 13px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .nav-links a {
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 7px 12px;
+  border-radius: 9px;
   font-size: 15px;
   color: var(--muted);
-  transition:
-    background 0.2s,
-    color 0.2s;
 }
+
 .nav-links a:hover {
   background: var(--bg-alt);
   color: var(--text);
 }
 
 .theme-btn {
+  margin-left: 6px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
+  border-radius: 9px;
   background: var(--card);
   color: var(--text);
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 6px;
-  transition: transform 0.2s;
-}
-.theme-btn:hover {
-  transform: scale(1.08);
 }
 
 .nav-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: 0;
   padding: 8px;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
+
 .nav-toggle span {
   width: 24px;
   height: 2px;
   background: var(--text);
-  border-radius: 2px;
-  transition: 0.25s;
 }
 
 /* ================= HERO ================= */
 .hero {
-  padding: 80px 0 70px;
-  background:
-    radial-gradient(
-      700px 300px at 85% -10%,
-      color-mix(in srgb, var(--accent) 18%, transparent),
-      transparent
-    ),
-    radial-gradient(
-      600px 300px at 5% 0%,
-      color-mix(in srgb, var(--primary) 16%, transparent),
-      transparent
-    );
+  padding: 60px 0 50px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 40px;
+  grid-template-columns: 1fr 190px;
+  gap: 34px;
   align-items: center;
 }
 
@@ -185,191 +156,151 @@ a {
 }
 
 .hero-name {
-  font-size: clamp(32px, 5vw, 52px);
-  line-height: 1.15;
-  margin: 4px 0 10px;
-  letter-spacing: -1px;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.2;
+  margin: 4px 0 8px;
 }
 
 .hero-role {
   color: var(--muted);
-  font-size: 17px;
 }
+
 .hero-role strong {
   color: var(--text);
 }
 
 .hero-desc {
-  margin-top: 14px;
-  max-width: 46ch;
+  margin-top: 12px;
   color: var(--muted);
 }
 
 .hero-actions {
   display: flex;
-  gap: 12px;
-  margin-top: 26px;
   flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 22px;
-  border-radius: 12px;
+  padding: 11px 20px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
   border: 1px solid transparent;
   transition: 0.2s;
 }
+
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: var(--primary);
   color: #fff;
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 35%, transparent);
 }
+
 .btn-primary:hover {
-  transform: translateY(-2px);
+  background: var(--accent);
 }
+
 .btn-ghost {
-  border-color: var(--border);
   background: var(--card);
+  border-color: var(--border);
 }
+
 .btn-ghost:hover {
   background: var(--bg-alt);
 }
 
 .hero-stats {
   display: flex;
-  gap: 34px;
+  gap: 30px;
   list-style: none;
-  margin-top: 38px;
+  margin-top: 30px;
 }
+
 .hero-stats b {
   display: block;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.2;
 }
+
 .hero-stats span {
   font-size: 13px;
   color: var(--muted);
 }
 
-/* Foto / avatar */
-.hero-photo {
-  display: grid;
-  justify-items: center;
-  gap: 10px;
-}
-
+/* Foto profil */
 .avatar {
-  width: 210px;
-  height: 210px;
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 78px;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
+  border: 3px solid var(--card);
+  display: block;
 }
 
-.avatar-hint {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  max-width: 240px;
-}
-.avatar-hint code {
-  background: var(--bg-alt);
-  padding: 1px 5px;
-  border-radius: 5px;
-}
-
-/* ================= SECTION UMUM ================= */
+/* ================= SECTION ================= */
 .section {
-  padding: 70px 0;
+  padding: 55px 0;
 }
+
 .section-alt {
   background: var(--bg-alt);
 }
 
 .section-title {
-  font-size: clamp(24px, 3.4vw, 34px);
-  letter-spacing: -0.5px;
-}
-.section-sub {
-  color: var(--muted);
-  margin-bottom: 30px;
+  font-size: clamp(22px, 3.4vw, 28px);
+  margin-bottom: 24px;
 }
 
-.section-title::after {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 4px;
-  border-radius: 4px;
-  margin-top: 10px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-}
-
-/* ================= KARTU ================= */
+/* ================= KARTU "TENTANG" ================= */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
+  padding: 20px;
 }
-.card:hover {
-  transform: translateY(-6px);
-}
+
 .card-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-.card h3 {
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 8px;
 }
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
 .card p {
   color: var(--muted);
   font-size: 15px;
 }
 
 /* ================= SKILL ================= */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px 40px;
+.skill {
+  margin-bottom: 18px;
 }
 
 .skill-head {
   display: flex;
   justify-content: space-between;
   font-size: 15px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
+
 .skill-val {
   color: var(--primary);
   font-weight: 600;
 }
 
 .bar {
-  height: 10px;
-  border-radius: 10px;
+  height: 9px;
+  border-radius: 9px;
   background: var(--card);
   border: 1px solid var(--border);
   overflow: hidden;
@@ -377,108 +308,117 @@ a {
 
 .bar i {
   display: block;
-  height: 100%;
   width: 0;
-  border-radius: 10px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  transition: width 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  height: 100%;
+  border-radius: 9px;
+  background: var(--primary);
+  transition: width 1s ease;
 }
+
 .bar.in i {
   width: var(--w);
 }
 
 /* ================= HOBI ================= */
+.hobby-hint {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
 .hobby-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .hobby {
-  padding: 10px 18px;
+  padding: 9px 16px;
   border-radius: 999px;
-  cursor: pointer;
-  font-size: 15px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
   transition: 0.2s;
 }
+
 .hobby:hover {
   border-color: var(--primary);
 }
+
 .hobby.active {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: var(--primary);
+  border-color: var(--primary);
   color: #fff;
-  border-color: transparent;
 }
 
 .hobby-detail {
-  margin-top: 20px;
-  padding: 20px 22px;
+  margin-top: 18px;
+  padding: 16px 18px;
   border-radius: var(--radius);
   background: var(--card);
   border: 1px solid var(--border);
   border-left: 4px solid var(--primary);
+  color: var(--muted);
 }
 
 /* ================= KONTAK ================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
 }
 
 .contact-card {
   display: grid;
   gap: 2px;
-  padding: 20px;
+  padding: 18px;
   border-radius: var(--radius);
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition:
-    transform 0.2s,
-    border-color 0.2s;
+  transition: 0.2s;
 }
+
 .contact-card:hover {
-  transform: translateY(-4px);
   border-color: var(--primary);
 }
+
 .contact-icon {
-  font-size: 22px;
+  font-size: 20px;
 }
+
 .contact-card small {
   color: var(--muted);
 }
 
 /* ================= FOOTER ================= */
 .footer {
-  padding: 26px 0;
+  padding: 24px 0;
   text-align: center;
   font-size: 14px;
   color: var(--muted);
   border-top: 1px solid var(--border);
 }
 
-/* Tombol ke atas */
+/* ================= TOMBOL KE ATAS ================= */
 .to-top {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  right: 18px;
+  bottom: 18px;
+  width: 42px;
+  height: 42px;
   border: 0;
-  cursor: pointer;
+  border-radius: 50%;
+  background: var(--primary);
   color: #fff;
-  font-size: 18px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  box-shadow: var(--shadow);
+  font-size: 17px;
+  cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: 0.25s;
+  transition: 0.2s;
 }
+
 .to-top.show {
   opacity: 1;
   pointer-events: auto;
@@ -487,48 +427,26 @@ a {
 /* ================= ANIMASI MUNCUL ================= */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(14px);
   transition:
-    opacity 0.6s,
-    transform 0.6s;
+    opacity 0.5s,
+    transform 0.5s;
 }
+
 .reveal.in {
   opacity: 1;
   transform: none;
 }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 860px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-actions,
-  .hero-stats {
-    justify-content: center;
-  }
-  .hero-photo {
-    order: -1;
-  }
-  .avatar {
-    width: 160px;
-    height: 160px;
-    font-size: 58px;
-  }
-}
-
-@media (max-width: 720px) {
+@media (max-width: 700px) {
   .nav-toggle {
     display: flex;
   }
 
   .nav-links {
     position: absolute;
-    top: 64px;
+    top: 60px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -539,24 +457,42 @@ a {
     border-bottom: 1px solid var(--border);
     display: none;
   }
+
   .nav-links.open {
     display: flex;
   }
+
   .nav-links a {
-    padding: 12px;
-  }
-  .theme-btn {
-    margin: 6px 12px 0;
+    padding: 11px;
   }
 
+  .theme-btn {
+    margin: 6px 11px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-photo {
+    order: -1;
+  }
+
+  .hero-actions,
   .hero-stats {
-    gap: 22px;
+    justify-content: center;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
     transition: none !important;
   }
 }

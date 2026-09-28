@@ -10,52 +10,49 @@ Klik dua kali `index.html`, atau kalau mau lewat terminal:
 Start-Process index.html
 ```
 
-## Cara ubah teks — CUKUP 1 TEMPAT
+## Cara ubah teks — LANGSUNG DI `index.html`
 
-Buka **`script.js`**, lihat objek `PENGATURAN` di baris paling atas.
-Semua isi web diambil dari situ. Ubah nilainya → simpan → refresh browser.
+Semua tulisan ada di **`index.html`**. Cari tulisannya, ganti, simpan, refresh. Selesai.
+
+| Yang mau diubah | Cari ini di `index.html` |
+| --- | --- |
+| Nama pendek di hero | `Rahadian` di `.hero-name` |
+| Nama panjang di navbar | `Putu Rahadian Ardhia Permana` |
+| Inisial logo | `RA` di `.brand-badge` |
+| Foto profil | `src="foto.jpeg"` di `<img class="avatar">` |
+| Nama sekolah & jurusan | `SMK Negeri 1 Denpasar` / `RPL` |
+| Statistik (umur, project) | `data-count="16"` dan tulisannya di sebelahnya |
+| 3 kartu Tentang Saya | `<article class="card">` |
+| Skill | angka di `.skill-val` **dan** di `style="--w: 75%"` (ubah dua-duanya) |
+| Hobi | `data-detail="..."` di `<button class="hobby">` |
+| Kontak | link `mailto:`, `instagram.com`, `wa.me`, `github.com` |
+| Judul tab browser | `<title>` di paling atas |
+
+Mau tambah kartu / skill / hobi / kontak? Copy satu blok yang mirip, tempel di bawahnya, ganti isinya.
+
+## `script.js` isinya apa?
+
+Cuma **mesin** — ganti tema, menu HP, angka naik, bar skill, klik hobi, tombol ke atas.
+Gak ada teks di sana, jadi **tidak perlu dibuka** kecuali mau menyetel cepatnya:
 
 ```js
-const PENGATURAN = {
-  inisial: "AR",                     // 2 huruf di logo pojok kiri atas
-  nama: "Ganti Nama Kamu",           // dipakai di navbar, hero, footer, dan judul tab
-  sekolah: "SMK Negeri 1 Ganti Ini",
-  jurusan: "RPL",
-  deskripsi: "Tulis cerita singkat tentang kamu di sini.",
-  foto: "",                          // isi "foto.jpg" kalau mau pakai foto
-
-  statistik: [
-    { angka: 17, label: "Umur" },
-    { angka: 12, label: "Project" },
-    { angka: 3,  label: "Tahun Ngoding" },
-  ],
-
-  tentang: [ { icon: "🎓", judul: "Sekolah", isi: "..." } ],
-  skill:   [ { nama: "HTML & CSS", persen: 90 } ],
-  hobi:    [ { nama: "⚽ Futsal", detail: "Main futsal tiap Sabtu." } ],
-  kontak:  [ { icon: "✉️", judul: "Email", teks: "...", link: "mailto:..." } ],
+const OPSI = {
+  kecepatanAngka: 900,   // animasi angka di hero (ms)
+  simpanTema: true,      // ingat pilihan tema setelah refresh
+  ambangTombolAtas: 400, // kapan tombol ↑ muncul (px)
 };
 ```
 
-- **Mau tambah / kurangi** kartu, skill, hobi, atau kontak? Cukup tambah atau hapus satu baris di daftarnya.
-- **Persen skill** tulis angka 0–100 saja, panjang bar-nya mengikuti otomatis.
-- **Hobi** otomatis jadi tombol yang bisa diklik (yang pertama aktif duluan).
-- **Kontak** otomatis jadi kartu yang bisa diklik sesuai `link`.
-
-### Pakai foto
+## Pakai foto
 
 1. Taruh file foto (misal `foto.jpg`) di folder yang sama dengan `index.html`.
-2. Di `script.js` ganti `foto: ""` jadi `foto: "foto.jpg"`.
-3. Kalau dikosongkan, yang tampil adalah huruf pertama dari `nama` kamu.
+2. Di `index.html` ganti `src="foto.jpeg"` jadi nama file fotomu.
+3. Foto otomatis dipotong bulat by CSS (`.avatar`).
 
-### `index.html`
-
-Biasanya tidak perlu disentuh. Isinya cuma kerangka; teksnya diisi oleh `script.js`.
-Kalau mau, boleh hapus komentar `<!-- -->` di dalamnya.
-
-### Di `style.css` (paling atas, `:root`)
+## Di `style.css` (paling atas, `:root`)
 
 - `--primary` dan `--accent` — ganti 2 warna ini buat ubah seluruh tema sekaligus.
+- `--maxw` — lebar maksimal halaman.
 - `body.dark { ... }` — warna untuk mode gelap.
 
 ## Fitur interaktif
@@ -68,6 +65,8 @@ Kalau mau, boleh hapus komentar `<!-- -->` di dalamnya.
 - 🎯 Kartu hobi bisa diklik dan detailnya berubah
 - ⬆️ Tombol balik ke atas + navbar melengket di atas
 - 📐 Responsif: rapi di HP, tablet, dan laptop
+
+Tanpa library, tanpa build tool, tanpa server. Cukup 3 file: `index.html`, `style.css`, `script.js` (+ foto).
 
 ## Git
 
@@ -85,6 +84,12 @@ tambahkan dulu foldernya ke PATH lewat:
 
 ```powershell
 $env:Path += ";C:\Program Files\Git\cmd"
+```
+
+Repo online: [github.com/anrahadi-dotcom/Simple-Profile](https://github.com/anrahadi-dotcom/Simple-Profile)
+
+```powershell
+git push
 ```
 
 Folder `Portofolio/` dan `Test 1/` sengaja tidak ikut di-commit (lihat `.gitignore`).
