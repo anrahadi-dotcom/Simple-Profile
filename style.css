@@ -13,7 +13,8 @@
   --primary: #4f46e5;
   --accent: #06b6d4;
   --radius: 14px;
-  --maxw: 820px;
+  --maxw: 1000px;   /* lebar maksimal halaman */
+  --baca: 60ch;     /* lebar maksimal teks panjang biar enak dibaca */
 }
 
 /* Tema gelap — diaktifkan lewat tombol 🌙 */
@@ -145,8 +146,8 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 190px;
-  gap: 34px;
+  grid-template-columns: 1fr 210px;
+  gap: 44px;
   align-items: center;
 }
 
@@ -171,6 +172,7 @@ a {
 
 .hero-desc {
   margin-top: 12px;
+  max-width: var(--baca);
   color: var(--muted);
 }
 
@@ -229,9 +231,14 @@ a {
 }
 
 /* Foto profil */
+.hero-photo {
+  display: flex;
+  justify-content: center;
+}
+
 .avatar {
-  width: 190px;
-  height: 190px;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--card);
@@ -240,7 +247,7 @@ a {
 
 /* ================= SECTION ================= */
 .section {
-  padding: 55px 0;
+  padding: 60px 0;
 }
 
 .section-alt {
@@ -249,14 +256,33 @@ a {
 
 .section-title {
   font-size: clamp(22px, 3.4vw, 28px);
-  margin-bottom: 24px;
+  margin-bottom: 10px;
+}
+
+/* Garis kecil di bawah judul section */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  border-radius: 4px;
+  margin-top: 10px;
+  background: var(--primary);
+}
+
+/* Beri jarak antara judul dan isinya */
+.section-title + .cards,
+.section-title + .skills,
+.section-title + .hobby-hint,
+.section-title + .contact-grid {
+  margin-top: 26px;
 }
 
 /* ================= KARTU "TENTANG" ================= */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
 }
 
 .card {
@@ -282,8 +308,16 @@ a {
 }
 
 /* ================= SKILL ================= */
+/* Skill ditata 2 kolom kalau layarnya cukup lebar, 1 kolom kalau di HP */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 44px;
+  margin-top: 26px;
+}
+
 .skill {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .skill-head {
@@ -366,8 +400,9 @@ a {
 /* ================= KONTAK ================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 26px;
 }
 
 .contact-card {
@@ -472,7 +507,23 @@ a {
 
   .hero-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
     text-align: center;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .hero-photo {
